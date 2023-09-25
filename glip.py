@@ -4,34 +4,27 @@ from PIL import Image
 import random
 from tqdm import tqdm
 import pickle
+import json
 
 
-def unpickle(file):
-    with open(file, 'rb') as fo:
-        dict = pickle.load(fo, encoding='bytes')
-    return dict
+def load_json(file):
+    f = open(file)
+    data = json.load(f)
+    f.close()
+    return data
 
 
 def get_data():
-    label_names = unpickle('../../../../groups/course.cap6411/cifar-10-batches-py/batches.meta')
+    captions = load_json('../../../groups/course.cap6411/Dataset/coco/annotations/captions_val2017.json')
+    instances = load_json('../../../groups/course.cap6411/Dataset/coco/annotations/instances_val2017.json')
+    person_keypoints = load_json('../../../groups/course.cap6411/Dataset/coco/annotations/person_keypoints_val2017.json')
 
-    labels = []
-    for i in range(len(label_names[b'label_names'])):
-        # strip the b' and ' from the label names
-        labels.append(label_names[b'label_names'][i].decode("utf-8"))
+    return captions, instances, person_keypoints
 
-    # load the image data
-    data = unpickle('../../../../groups/course.cap6411/cifar-10-batches-py/test_batch')
 
-    images_data = data[b'data']
-    targets = data[b'labels']
+captions, instances, person_keypoints = get_data()
 
-    new_images_data = []
+for i in captions['annotations']:
+    print(i['caption'])
 
-    for img in images_data:
-        img = img.reshape(3, 32, 32)
-        img = img.transpose(1, 2, 0)
-        img = Image.fromarray(img, 'RGB')
-        new_images_data.append(img)
-
-    return new_images_data, targets, labels
+print('=' * 100)
