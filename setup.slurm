@@ -20,4 +20,5 @@ source ~/.bashrc
 
 conda update conda
 
+# comment to fix git
 pip install -r requirements.txt
