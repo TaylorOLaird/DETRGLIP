@@ -20,4 +20,4 @@ source ~/.bashrc
 
 conda update conda
 
-pip install requirements.txt
+pip install -r requirements.txt
