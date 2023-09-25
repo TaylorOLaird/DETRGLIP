@@ -22,3 +22,12 @@ for i in captions['annotations']:
     print(i['caption'])
 
 print('=' * 100)
+
+for i in instances['annotations']:
+    print(i['category_id'])
+
+print('=' * 100)
+
+for i in person_keypoints['annotations']:
+    print(i['keypoints'])
+
