@@ -13,10 +13,7 @@ def unpickle(file):
 
 
 def get_data():
-    if IS_LOCAL:
-        label_names = unpickle('cifar-10-batches-py/batches.meta')
-    else:
-        label_names = unpickle('../../../../groups/course.cap6411/cifar-10-batches-py/batches.meta')
+    label_names = unpickle('../../../../groups/course.cap6411/cifar-10-batches-py/batches.meta')
 
     labels = []
     for i in range(len(label_names[b'label_names'])):
@@ -24,10 +21,7 @@ def get_data():
         labels.append(label_names[b'label_names'][i].decode("utf-8"))
 
     # load the image data
-    if IS_LOCAL:
-        data = unpickle('cifar-10-batches-py/test_batch')
-    else:
-        data = unpickle('../../../../groups/course.cap6411/cifar-10-batches-py/test_batch')
+    data = unpickle('../../../../groups/course.cap6411/cifar-10-batches-py/test_batch')
 
     images_data = data[b'data']
     targets = data[b'labels']
