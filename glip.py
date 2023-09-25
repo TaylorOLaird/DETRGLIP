@@ -1,9 +1,3 @@
-import torch
-from transformers import ViTFeatureExtractor, ViTForImageClassification
-from PIL import Image
-import random
-from tqdm import tqdm
-import pickle
 import json
 
 
