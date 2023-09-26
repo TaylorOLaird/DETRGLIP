@@ -1,1 +1,2 @@
 pillow~=9.4.0
+transformers~=4.32.1
