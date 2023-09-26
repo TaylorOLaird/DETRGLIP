@@ -4,6 +4,8 @@ import glob
 import random
 from transformers import pipeline
 
+print(f"starting script")
+
 
 def load_json(file):
     f = open(file)
@@ -37,5 +39,7 @@ random_image = random.randint(0, len(images))
 test_image = images[random_image]
 images[random_image].save('random_image.jpg')
 
-pipe = pipeline(model="aychang/fasterrcnn-resnet50-cpu")
+pipe = pipeline(model="mindee/fasterrcnn_mobilenet_v3_large_fpn")
 pipe(test_image)
+
+print(f"done")
