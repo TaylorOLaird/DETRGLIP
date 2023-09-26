@@ -9,7 +9,6 @@
 #SBATCH --gres=gpu:2
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user ta187904@ucf.edu
-#SBATCH --constraint=gpu32
 
 
 # Load modules
