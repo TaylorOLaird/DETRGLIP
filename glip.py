@@ -23,7 +23,7 @@ def get_data():
     captions = load_json('../../../groups/course.cap6411/Dataset/coco/annotations/captions_val2017.json')
     instances = load_json('../../../groups/course.cap6411/Dataset/coco/annotations/instances_val2017.json')
     person_keypoints = load_json('../../../groups/course.cap6411/Dataset/coco/annotations/person_keypoints_val2017.json')
-    images = laod_images('../../../groups/course.cap6411/Dataset/coco/val2017/*.jpg')
+    images = laod_images('../../../groups/course.cap6411/Dataset/coco/val2017/')
 
     return captions, instances, person_keypoints, images
 
